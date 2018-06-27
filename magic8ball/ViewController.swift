@@ -10,10 +10,27 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBAction func askButtonPressed(_ sender: UIButton) {
+        BallShuffleImage()
+    }
+    
+    @IBOutlet weak var ballImage: UIImageView!
+    
+    let ballArray = ["ball1", "ball2", "ball3", "ball4", "ball5" ]
+    
+   
+    func BallShuffleImage(){
+        let randAnswer = Int(arc4random_uniform(4))
+        
+        ballImage.image = UIImage(named: ballArray[randAnswer])
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        BallShuffleImage()
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
